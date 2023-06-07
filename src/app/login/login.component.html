@@ -1,0 +1,17 @@
+<form #f="ngForm">
+  <div class="form">
+    <div>
+      <input [(ngModel)]="email" type="text" placeholder="adresse mail" />
+    </div>
+    <div>
+      <input
+        [(ngModel)]="password"
+        type="password"
+        placeholder="Mot De Passe"
+      />
+    </div>
+    <button (click)="verifyProfil()">
+      <span>Se Connecter</span>
+    </button>
+  </div>
+</form>
