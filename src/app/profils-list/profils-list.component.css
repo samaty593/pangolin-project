@@ -1,0 +1,16 @@
+h1, h2{
+    padding: 3rem;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    background-color: darksalmon;
+    padding:3rem;
+    margin:2rem;
+    max-width: 60vw;
+    border-radius: 8px;
+}

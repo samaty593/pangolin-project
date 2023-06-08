@@ -1,1 +1,17 @@
-<p>profil works!</p>
+<section class="profil">
+  <h1>Votre profil</h1>
+  <div>Name : {{ profil.name }}</div>
+  <div>rôle: {{ profil.role }}</div>
+</section>
+<section class="friends">
+  <ul>
+    <h2>tes ami(e)s</h2>
+    <li *ngFor="let item of profil.friendsList">
+      <div #name>{{ item.name }}</div>
+      <div>rôle: {{ item.role }}</div>
+      <button (click)="nameToDelete = name.innerHTML; removeFriend()">
+        retirer
+      </button>
+    </li>
+  </ul>
+</section>

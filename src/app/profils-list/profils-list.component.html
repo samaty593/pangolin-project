@@ -1,1 +1,7 @@
-<p>profils-list works!</p>
+<h1>La Liste De Tout Les Pangolins</h1>
+<ul>
+  <li *ngFor="let item of profils">
+    <div>{{ item.name }}</div>
+    <div>rôle:{{ item.role }}</div>
+  </li>
+</ul>

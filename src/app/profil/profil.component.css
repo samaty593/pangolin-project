@@ -1,0 +1,43 @@
+h1, h2{
+    padding: 3rem;
+    text-align: center;
+}
+
+section {
+    max-width: 70vw;
+}
+
+.profil {
+    padding: 3rem;
+    background-color: beige;
+    margin: 2rem;
+    border-radius:8px;
+}
+
+.friends {
+    padding: 3rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+
+li {
+    background-color: lightcoral;
+    padding: 2rem;
+    margin-bottom: 4rem;
+    border-radius: 8px;
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    background-color: blueviolet;
+    padding: 1rem;
+    color:aliceblue;
+    font-weight: bolder;
+    display: block;
+    margin-left: auto;
+    
+}
