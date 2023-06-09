@@ -10,7 +10,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   constructor(
     private http: HttpClient,
-    private route: ActivatedRoute,
     private router: Router) {}
 
   email: string = "";
@@ -33,12 +32,9 @@ export class LoginComponent implements OnInit {
             email: res.email,
             password: res.password
           };
-          console.log(profil);
         localStorage.setItem('profil', JSON.stringify(profil));
         this.router.navigate(['/profil']);
         }
-       
-        
       }
     }
         ) 

@@ -1,5 +1,4 @@
 form {
-    height: 100vh;
     width: 100vw;
     display: flex;  
     justify-content: center;
@@ -7,8 +6,8 @@ form {
 }
 
 .form {
-    width: 20rem;
-    height: 20rem;
+    width: 25rem;
+    height: 35rem;
     background-color: rgb(249, 243, 243);
     display: flex;  
     flex-direction: column;
@@ -19,6 +18,9 @@ form {
 
 }
 
+a {
+    font-size: 1.5rem;
+}
 input {
     height: 3.5rem;
     border: none;
@@ -29,11 +31,9 @@ input {
     cursor: pointer;
 }
 
-input::placeholder {
-    color: rgba(1,1,1,0.5)
-}
 
-button {
+
+input[type='submit'] {
     border: none;
     background-color: blue;
     border-radius: 10px;
@@ -44,8 +44,19 @@ button {
 
 }
 
-button:hover {
+input[type='submit']:hover {
     background-color: white;
     color : blue;
 }
 
+label {
+    font-size: 1.5rem;
+    color: grey;
+}
+
+select {
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+}

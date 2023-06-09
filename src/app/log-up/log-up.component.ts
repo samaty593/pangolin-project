@@ -14,15 +14,34 @@ export class LogUpComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router) {}
 
-  email: string = "";
-  password: string = ""
+  profil = {
+    email : "",
+    password: "",
+    role: "",
+    name: "",
+    friendsList: [],
+  }
+
 
 
   ngOnInit(): void {
   }
 
   createProfil() {
-    // this.http.post()
+    this.http.post('http://localhost:8080/api', { params: {
+      ['emailAddress']: this.profil.email,
+      ['password']: this.profil.password,
+      ['role']: this.profil.role,
+      ['name']: this.profil.name,
+    }}).subscribe({
+      next: (res) => {
+        console.log(res);
+        localStorage.setItem('profil', JSON.stringify(this.profil));
+        this.router.navigate(['/profil']);
+
+      }
+    });
+
   }
 
 }

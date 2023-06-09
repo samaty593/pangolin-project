@@ -6,6 +6,6 @@ div {
     cursor: pointer;
     width:fit-content;
     position:absolute;
-    bottom:0;
+    bottom:30Vh;
     right:0;
 }

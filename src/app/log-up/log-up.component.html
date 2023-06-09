@@ -3,7 +3,7 @@
   <div class="form">
     <div>
       <input
-        [(ngModel)]="email"
+        [(ngModel)]="profil.email"
         required
         type="text"
         placeholder="adresse mail"
@@ -13,7 +13,7 @@
     </div>
     <div>
       <input
-        [(ngModel)]="password"
+        [(ngModel)]="profil.password"
         required
         type="password"
         placeholder="Mot De Passe"
@@ -21,6 +21,25 @@
         #revNet="ngModel"
       />
     </div>
-    <input type="submit" value="se connecter" />
+    <div>
+      <input
+        [(ngModel)]="profil.name"
+        required
+        type="text"
+        placeholder="nom"
+        name="name"
+        #revNet="ngModel"
+      />
+    </div>
+    <label for="role">choisis ton rôle</label>
+    <select [(ngModel)]="profil.role" name="role" id="role" #revNet="ngModel">
+      <option value="Guerrier">Guerrier</option>
+      <option value="Alchimiste">Alchimiste</option>
+      <option value="Sorcier">Sorcier</option>
+      <option value="Espions">Espions</option>
+      <option value="Enchanteur" selected>Enchanteur</option>
+    </select>
+    <input type="submit" value="s'inscrire" />
+    <a [routerLink]="['login']">déjà inscrit</a>
   </div>
 </form>
