@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProfilComponent implements OnInit {
   profil: {name: string, role: string, friendsList: [{name: string, _id: string, role: string}]};;
-  nameToDelete: string;;
+  nameToDelete: string;
 
   constructor(private http: HttpClient) { }
 

@@ -1,13 +1,26 @@
-<form class="login">
+<h1>Crées Ton Profil</h1>
+<form #f="ngForm" (ngSubmit)="createProfil()">
   <div class="form">
-    <div class="login__field">
-      <input type="text" class="login__input" placeholder="adresse mail" />
+    <div>
+      <input
+        [(ngModel)]="email"
+        required
+        type="text"
+        placeholder="adresse mail"
+        name="email"
+        #revNet="ngModel"
+      />
     </div>
-    <div class="login__field">
-      <input type="password" class="login__input" placeholder="Mot De Passe" />
+    <div>
+      <input
+        [(ngModel)]="password"
+        required
+        type="password"
+        placeholder="Mot De Passe"
+        name="password"
+        #revNet="ngModel"
+      />
     </div>
-    <button class="button login__submit">
-      <span class="button__text">Se Connecter</span>
-    </button>
+    <input type="submit" value="se connecter" />
   </div>
 </form>

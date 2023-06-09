@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-log-up',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogUpComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private http: HttpClient,
+    private route: ActivatedRoute,
+    private router: Router) {}
+
+  email: string = "";
+  password: string = ""
+
 
   ngOnInit(): void {
+  }
+
+  createProfil() {
+    // this.http.post()
   }
 
 }

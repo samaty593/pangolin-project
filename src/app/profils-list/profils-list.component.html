@@ -1,7 +1,22 @@
 <h1>La Liste De Tout Les Pangolins</h1>
 <ul>
   <li *ngFor="let item of profils">
-    <div>{{ item.name }}</div>
+    <div #name>{{ item.name }}</div>
     <div>rôle:{{ item.role }}</div>
+    <button
+      class="ajouter"
+      *ngIf="!item.isFriends && user !== name.innerHTML"
+      (click)="friendToAddOrDel = name.innerHTML; addFriend()"
+    >
+      ajouter
+    </button>
+    <button
+      class="retirer"
+      (click)="friendToAddOrDel = name.innerHTML; removeFriend()"
+      *ngIf="item.isFriends && user !== name.innerHTML"
+    >
+      retirer
+    </button>
   </li>
 </ul>
+<app-log-out></app-log-out>

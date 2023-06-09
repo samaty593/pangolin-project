@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
    verifyProfil() {
-    this.http.get<{ verified: boolean; name: string, role: string, friendsList: string[] }>('http://localhost:8080/api', { params: {
+    this.http.get<{ verified: boolean; name: string, email: string, role: string, friendsList: string[], password: string }>('http://localhost:8080/api', { params: {
       ['email']: this.email,
       ['password']: this.password,
     }}).subscribe({
@@ -29,11 +29,13 @@ export class LoginComponent implements OnInit {
           const profil = {
             name:res.name,
             role: res.role,
-            friendsList: res.friendsList
+            friendsList: res.friendsList,
+            email: res.email,
+            password: res.password
           };
           console.log(profil);
         localStorage.setItem('profil', JSON.stringify(profil));
-          this.router.navigate(['/profil']);
+        this.router.navigate(['/profil']);
         }
        
         

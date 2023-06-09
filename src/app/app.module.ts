@@ -8,6 +8,7 @@ import { LogUpComponent } from './log-up/log-up.component';
 import { FormsModule } from '@angular/forms';
 import { ProfilComponent } from './profil/profil.component';
 import { ProfilsListComponent } from './profils-list/profils-list.component';
+import { LogOutComponent } from './log-out/log-out.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ProfilsListComponent } from './profils-list/profils-list.component';
     LoginComponent,
     LogUpComponent,
     ProfilComponent,
-    ProfilsListComponent
+    ProfilsListComponent,
+    LogOutComponent
   ],
   imports: [
     BrowserModule,

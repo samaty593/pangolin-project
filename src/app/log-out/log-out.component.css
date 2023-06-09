@@ -1,0 +1,11 @@
+div {
+    border: none;
+    background-color: indianred;
+    padding: 3rem;
+    border-radius: 10px;
+    cursor: pointer;
+    width:fit-content;
+    position:absolute;
+    bottom:0;
+    right:0;
+}
