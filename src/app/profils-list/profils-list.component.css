@@ -36,3 +36,6 @@ li {
     margin-left: auto;
     background-color: red;
 }
+button {
+    cursor: pointer;
+}

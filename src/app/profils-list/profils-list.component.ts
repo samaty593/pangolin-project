@@ -38,13 +38,10 @@ export class ProfilsListComponent implements OnInit {
         this.http.get<{ allPangolin: [] }>('http://localhost:8080/api/listAll').subscribe(res => {
           this.profils = res.allPangolin;
           this.updateFriendStatus();
-          console.log('getAll')
-
-    
       })
     }
   
-    private    getUpdatedProfil() {
+    private    getUpdatedFriendsList() {
       this.http.get<{ verified: boolean; name: string, role: string, email: string, password: string, friendsList: string[] }>('http://localhost:8080/api', { params: {
         ['email']: JSON.parse(localStorage.getItem('profil')).email,
         ['password']: JSON.parse(localStorage.getItem('profil')).password,
@@ -58,7 +55,8 @@ export class ProfilsListComponent implements OnInit {
               password: res.password,
             };
           localStorage.setItem('profil', JSON.stringify(profil));
-          location.reload();
+          this.getAll();
+
 
         }
       }) 
@@ -74,7 +72,7 @@ export class ProfilsListComponent implements OnInit {
       ['friend_Id']: friend_Id._id,
     }})
       .subscribe(() => {
-        this.getUpdatedProfil();
+        this.getUpdatedFriendsList();
       })
 
   };
@@ -89,7 +87,7 @@ export class ProfilsListComponent implements OnInit {
        ['friend_Id']: friend_Id._id,
       } })
           .subscribe(res => {
-            this.getUpdatedProfil();
+            this.getUpdatedFriendsList();
           });
 
   }
