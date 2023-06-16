@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'logup', component: LogUpComponent },
   { path: 'profil', component: ProfilComponent },
   { path: 'pangolinsList', component: ProfilsListComponent},
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: 'login' }
 ];
 
 @NgModule({
