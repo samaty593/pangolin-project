@@ -21,7 +21,7 @@ export class ProfilComponent implements OnInit {
       return element.name === this.nameToDelete;
     });
 
-    this.http.delete('http://localhost:8080/api', { params: {
+    this.http.delete('https://pangolin-love-fruits.onrender.com/api', { params: {
        ['user']: this.profil.name,
        ['friend_Id']: friend_Id._id
 

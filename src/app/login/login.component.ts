@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   }
 
    verifyProfil() {
-    this.http.get<{ verified: boolean; name: string, email: string, role: string, friendsList: string[], password: string }>('http://localhost:8080/api', { params: {
+    this.http.get<{ verified: boolean; name: string, email: string, role: string, friendsList: string[], password: string }>('https://pangolin-love-fruits.onrender.com/api', { params: {
       ['email']: this.email,
       ['password']: this.password,
     }}).subscribe({

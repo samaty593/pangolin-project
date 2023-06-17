@@ -35,14 +35,14 @@ export class ProfilsListComponent implements OnInit {
         this.user = JSON.parse(localStorage.getItem('profil')).name;
         this.friendsList = JSON.parse(localStorage.getItem('profil')).friendsList;
 
-        this.http.get<{ allPangolin: [] }>('http://localhost:8080/api/listAll').subscribe(res => {
+        this.http.get<{ allPangolin: [] }>('https://pangolin-love-fruits.onrender.com/api/listAll').subscribe(res => {
           this.profils = res.allPangolin;
           this.updateFriendStatus();
       })
     }
   
     private    getUpdatedFriendsList() {
-      this.http.get<{ verified: boolean; name: string, role: string, email: string, password: string, friendsList: string[] }>('http://localhost:8080/api', { params: {
+      this.http.get<{ verified: boolean; name: string, role: string, email: string, password: string, friendsList: string[] }>('https://pangolin-love-fruits.onrender.com/api', { params: {
         ['email']: JSON.parse(localStorage.getItem('profil')).email,
         ['password']: JSON.parse(localStorage.getItem('profil')).password,
       }}).subscribe({
@@ -67,7 +67,7 @@ export class ProfilsListComponent implements OnInit {
       return element.name === this.friendToAddOrDel;
     });
 
-    this.http.put('http://localhost:8080/api', { params: {
+    this.http.put('https://pangolin-love-fruits.onrender.com/api', { params: {
       ['user']: this.user,
       ['friend_Id']: friend_Id._id,
     }})
@@ -82,7 +82,7 @@ export class ProfilsListComponent implements OnInit {
       return element.name === this.friendToAddOrDel;
     });
 
-    this.http.delete('http://localhost:8080/api', { params: {
+    this.http.delete('https://pangolin-love-fruits.onrender.com/api', { params: {
        ['user']: this.user,
        ['friend_Id']: friend_Id._id,
       } })

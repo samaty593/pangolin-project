@@ -28,7 +28,7 @@ export class LogUpComponent implements OnInit {
   }
 
   createProfil() {
-    this.http.post('http://localhost:8080/api', { params: {
+    this.http.post('https://pangolin-love-fruits.onrender.com/api', { params: {
       ['emailAddress']: this.profil.email,
       ['password']: this.profil.password,
       ['role']: this.profil.role,
