@@ -58,7 +58,7 @@ export class RemoveFriendBtnComponent {
         const friend = element.name;
         if (friend == name) {
           this.profils[i].isFriends= true;
-       }
+       } else { this.profils[i].isFriends= false}
       })
     })
   }
