@@ -1,0 +1,7 @@
+<button
+  class="retirer"
+  (click)="friendToAddOrDel = name.innerHTML; removeFriend()"
+  *ngIf="item.isFriends && user !== name.innerHTML"
+>
+  retirer
+</button>

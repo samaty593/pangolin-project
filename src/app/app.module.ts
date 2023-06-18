@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { ProfilComponent } from './profil/profil.component';
 import { ProfilsListComponent } from './profils-list/profils-list.component';
 import { LogOutComponent } from './log-out/log-out.component';
+import { RemoveFriendBtnComponent } from './remove-friend-btn/remove-friend-btn.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { LogOutComponent } from './log-out/log-out.component';
     LogUpComponent,
     ProfilComponent,
     ProfilsListComponent,
-    LogOutComponent
+    LogOutComponent,
+    RemoveFriendBtnComponent
   ],
   imports: [
     BrowserModule,

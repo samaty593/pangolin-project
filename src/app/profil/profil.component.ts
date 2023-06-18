@@ -16,6 +16,7 @@ export class ProfilComponent implements OnInit {
      this.profil = JSON.parse(localStorage.getItem('profil') as string);
   };
 
+  
   public removeFriend() {
     const friend_Id = this.profil.friendsList.find(element => {
       return element.name === this.nameToDelete;
@@ -27,7 +28,7 @@ export class ProfilComponent implements OnInit {
 
       } })
           .subscribe(res => {
-            alert('Rafraichissez la page pour voire la mise à jour');
+            
           });
   }
 

@@ -10,7 +10,12 @@ export class ProfilsListComponent implements OnInit {
   friendsList: {name: string; _id: string}[]= [];
   user: string;
   friendToAddOrDel;
-  profils: { name: string; role: string, isFriends: boolean,_id: string, email: string, password: string}[];
+  profils: { name: string,
+             role: string,
+             isFriends: boolean,
+             _id: string, 
+             email: string, 
+             password: string }[];
   
   constructor(private http: HttpClient) { };
 
@@ -77,18 +82,18 @@ export class ProfilsListComponent implements OnInit {
 
   };
 
-  public removeFriend() {
-    const friend_Id = this.friendsList.find(element => {
-      return element.name === this.friendToAddOrDel;
-    });
+  // public removeFriend() {
+  //   const friend_Id = this.friendsList.find(element => {
+  //     return element.name === this.friendToAddOrDel;
+  //   });
 
-    this.http.delete('https://pangolin-love-fruits.onrender.com/api', { params: {
-       ['user']: this.user,
-       ['friend_Id']: friend_Id._id,
-      } })
-          .subscribe(res => {
-            this.getUpdatedFriendsList();
-          });
+  //   this.http.delete('https://pangolin-love-fruits.onrender.com/api', { params: {
+  //      ['user']: this.user,
+  //      ['friend_Id']: friend_Id._id,
+  //     } })
+  //         .subscribe(res => {
+  //           this.getUpdatedFriendsList();
+  //         });
 
-  }
+  // }
 }
