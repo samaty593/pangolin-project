@@ -10,6 +10,7 @@ export class ProfilsListComponent implements OnInit {
   friendsList: {name: string; _id: string}[]= [];
   user: string;
   friendToAddOrDel;
+  isFriends: boolean;
   profils: { name: string,
              role: string,
              isFriends: boolean,
@@ -31,7 +32,7 @@ export class ProfilsListComponent implements OnInit {
           const friend = element.name;
           if (friend == name) {
             this.profils[i].isFriends= true;
-         }
+         } else { this.profils[i].isFriends= false}
         })
       })
     }
