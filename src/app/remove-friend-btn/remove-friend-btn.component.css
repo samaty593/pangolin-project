@@ -1,11 +1,11 @@
 button {
     border: none;
     border-radius: 10px;
-    background-color: blueviolet;
     padding: 1rem;
     color:aliceblue;
     font-weight: bolder;
     display: block;
     margin-left: auto;
+    background-color: red;
     cursor: pointer;
 }

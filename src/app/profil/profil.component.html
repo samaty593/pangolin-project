@@ -9,9 +9,12 @@
     <li *ngFor="let item of profil.friendsList">
       <div #name>{{ item.name }}</div>
       <div>rôle: {{ item.role }}</div>
-      <button (click)="nameToDelete = name.innerHTML; removeFriend()">
-        retirer
-      </button>
+      <app-remove-friend-btn
+        [item]="item"
+        [friendToAddOrDelete]="name.innerHTML"
+        [friendsList]="profil.friendsList"
+        (deleteEvent)="getUpdatedFriendsList()"
+      ></app-remove-friend-btn>
     </li>
   </ul>
 </section>

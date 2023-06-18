@@ -10,14 +10,13 @@
     >
       ajouter
     </button>
-    <!-- <button
-      class="retirer"
-      (click)="friendToAddOrDel = name.innerHTML; removeFriend()"
+    <app-remove-friend-btn
+      [friendToAddOrDelete]="name.innerHTML"
+      [item]="item"
+      [friendsList]="friendsList"
       *ngIf="item.isFriends && user !== name.innerHTML"
-    >
-      retirer
-    </button> -->
-    <app-remove-friend-btn></app-remove-friend-btn>
+      (deleteEvent)="getUpdatedFriendsList()"
+    ></app-remove-friend-btn>
   </li>
 </ul>
 <app-log-out></app-log-out>

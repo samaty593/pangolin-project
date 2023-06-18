@@ -1,5 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ServerDataService } from '../server-data.service';
+
+
+interface Profils { name: string,
+  role: string,
+  isFriends: boolean,
+  _id: string, 
+  email: string, 
+  password: string,
+  friendsList: string[]
+};
 
 @Component({
   selector: 'app-profil',
@@ -7,29 +17,49 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./profil.component.css']
 })
 export class ProfilComponent implements OnInit {
-  profil: {name: string, role: string, friendsList: [{name: string, _id: string, role: string}]};;
+  profil;
   nameToDelete: string;
+  profils:  Profils[];
+  friendsList;
 
-  constructor(private http: HttpClient) { }
+  constructor(private serverData: ServerDataService) { };
 
   ngOnInit(): void {
-     this.profil = JSON.parse(localStorage.getItem('profil') as string);
+     this.profil = JSON.parse(localStorage.getItem('profil'));
+     this.friendsList = JSON.parse(localStorage.getItem('profil')).friendsList;
+
   };
 
-  
-  public removeFriend() {
-    const friend_Id = this.profil.friendsList.find(element => {
-      return element.name === this.nameToDelete;
-    });
+  private updateFriendStatus() {
+    this.profils.forEach((element, i) => {
+      const name = element.name;
+      this.friendsList.forEach((element: { name: string }) => {
+        const friend = element.name;
+        if (friend == name) {
+          this.profils[i].isFriends= true;
+       }
+      })
+    })
+  }
 
-    this.http.delete('https://pangolin-love-fruits.onrender.com/api', { params: {
-       ['user']: this.profil.name,
-       ['friend_Id']: friend_Id._id
-
-      } })
-          .subscribe(res => {
-            
-          });
+  public    getUpdatedFriendsList() {
+    this.serverData.getUpdatedFriendsList()
+      .subscribe({
+        next: (res: Profils) => {
+            const profil = {
+              name:res.name,
+              role: res.role,
+              friendsList: res.friendsList,
+              email: res.email,
+              password: res.password,
+            };
+          localStorage.setItem('profil', JSON.stringify(profil));
+          this.serverData.getAll().subscribe(res => {
+            this.profils = res.allPangolin;
+            this.updateFriendStatus();
+        });
+        }
+      }) 
   }
 
 }
