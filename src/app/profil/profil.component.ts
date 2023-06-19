@@ -31,6 +31,9 @@ export class ProfilComponent implements OnInit {
   };
 
   private updateFriendStatus() {
+    this.friendsList = JSON.parse(localStorage.getItem('profil')).friendsList;
+    this.profil = JSON.parse(localStorage.getItem('profil'));
+
     this.profils.forEach((element, i) => {
       const name = element.name;
       this.friendsList.forEach((element: { name: string }) => {

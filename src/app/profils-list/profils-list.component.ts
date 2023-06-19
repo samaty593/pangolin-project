@@ -36,7 +36,8 @@ export class ProfilsListComponent implements OnInit {
     }
     
     private updateFriendStatus() {
-      console.log('called ststts')
+      this.friendsList = JSON.parse(localStorage.getItem('profil')).friendsList;
+
       this.profils.forEach((element, i) => {
         const name = element.name;
         this.friendsList.forEach((element: { name: string }) => {
@@ -49,7 +50,7 @@ export class ProfilsListComponent implements OnInit {
     }
   
   
-    public    getUpdatedFriendsList() {
+    public getUpdatedFriendsList() {
       this.serverData.getUpdatedFriendsList()
         .subscribe({
           next: (res: Profils) => {
@@ -61,8 +62,10 @@ export class ProfilsListComponent implements OnInit {
                 password: res.password,
               };
             localStorage.setItem('profil', JSON.stringify(profil));
-            this.updateFriendStatus();
-
+            this.serverData.getAll().subscribe(res => {
+              this.profils = res.allPangolin;
+              this.updateFriendStatus();
+          });
           }
         }) 
     }
