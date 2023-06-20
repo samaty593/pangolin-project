@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   constructor(
-    private http: HttpClient,
-    private router: Router) {}
+    private router: Router, private auth: AuthServiceService) {}
 
   email: string = "";
   password: string = ""
@@ -19,10 +18,7 @@ export class LoginComponent implements OnInit {
   }
 
    verifyProfil() {
-    this.http.get<{ verified: boolean; name: string, email: string, role: string, friendsList: string[], password: string }>('https://pangolin-love-fruits.onrender.com/api', { params: {
-      ['email']: this.email,
-      ['password']: this.password,
-    }}).subscribe({
+    this.auth.logIn(this.email, this.password).subscribe({
       next: (res) => {
         if(res.verified == true) {
           const profil = {
@@ -33,6 +29,7 @@ export class LoginComponent implements OnInit {
             password: res.password
           };
         localStorage.setItem('profil', JSON.stringify(profil));
+        this.auth.loginStatus();
         this.router.navigate(['/profil']);
         }
       }

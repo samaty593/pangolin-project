@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServerDataService } from '../server-data.service';
+import { ServerDataService } from '../../services/server-data.service';
 
 interface Profils { name: string,
   role: string,

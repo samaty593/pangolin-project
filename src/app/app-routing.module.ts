@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { ProfilComponent } from './profil/profil.component';
-import { ProfilsListComponent } from './profils-list/profils-list.component';
-import { LogUpComponent } from './log-up/log-up.component';
+import { LoginComponent } from './components/login/login.component';
+import { ProfilComponent } from './components/profil/profil.component';
+import { ProfilsListComponent } from './components/profils-list/profils-list.component';
+import { LogUpComponent } from './components/log-up/log-up.component';
+import { AuthGuard } from './guardes/auth.guard';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'logup', component: LogUpComponent },
-  { path: 'profil', component: ProfilComponent },
-  { path: 'pangolinsList', component: ProfilsListComponent},
+  { path: 'logup', component: LogUpComponent, canActivate: [AuthGuard] },
+  { path: 'profil', component: ProfilComponent, canActivate: [AuthGuard]},
+  { path: 'pangolinsList', component: ProfilsListComponent, canActivate: [AuthGuard]},
   { path: '**', redirectTo: 'login' }
 ];
 
